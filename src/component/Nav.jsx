@@ -1,5 +1,6 @@
 import React from 'react'
 import navCss from '../App.module.css'
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
@@ -15,20 +16,19 @@ const Nav = () => {
 
   <div className={`hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto ${navCss.menu}`} >
     <div className="text-sm lg:flex-grow">
-      <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Docs
-      </a>
-      <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Examples
-      </a>
-      <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+      <span href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        Internships
+      </span>
+      <span href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        Jobs
+      </span>
+      <span href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
         Blog
-      </a>
+      </span>
     </div>
     <div className="flex gap-2">
-      {/* <a href="#" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 mr-2">Log-In</a> */}
-      <a
-        href="!" 
+      <Link
+        to="/register" 
         className={`button ${navCss.buttonNina} px-5 py-0 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white relative block focus:outline-none border-2 border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest overflow-hidden`} 
         data-text="Register"
       >
@@ -40,9 +40,9 @@ const Nav = () => {
         <span className="align-middle">t</span>
         <span className="align-middle">e</span>
         <span className="align-middle">r</span>
-      </a>
-      <a
-        href="!" 
+      </Link>
+      <Link
+        to="/Login" 
         className={`button ${navCss.buttonNina} px-5 py-0 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white relative block focus:outline-none border-2 border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest overflow-hidden`} 
         data-text="Log-In"
       >
@@ -52,7 +52,7 @@ const Nav = () => {
         <span className="align-middle">-</span>
         <span className="align-middle">I</span>
         <span className="align-middle">n</span>
-      </a>
+      </Link>
     </div>
   </div>
 </nav>
