@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SignUpForm = () => {
+const SignUpEmployee = () => {
 
     
 const [firstName, setFirstName] = useState('');
@@ -68,4 +68,4 @@ const [password, setPassword] = useState('');
   )
 }
 
-export default SignUpForm
+export default SignUpEmployee

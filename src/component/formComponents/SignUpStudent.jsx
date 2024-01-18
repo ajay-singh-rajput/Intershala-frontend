@@ -13,21 +13,6 @@ const [password, setPassword] = useState('');
     const submitHandlerStudent = async (e)=>{
         e.preventDefault();
         
-        // axios.post("http://localhost:8080/student/signup",{
-        //   firstName:firstName,
-        //   lastName:lastName,
-        //   email:email,
-        //   contact:contact,
-        //   city:city,
-        //   gender:gender,
-        //   password:password
-        // })
-        // .then((response)=>{
-        //   console.log(response)
-        // }).catch((error)=>{
-        //   console.log(error)
-        // })
-        
         try {
           const respo = await axios({
             method:'post',
