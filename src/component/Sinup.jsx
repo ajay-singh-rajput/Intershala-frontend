@@ -27,6 +27,7 @@ const [password, setPassword] = useState('');
         // }).catch((error)=>{
         //   console.log(error)
         // })
+        
         try {
           const respo = await axios({
             method:'post',
@@ -48,14 +49,16 @@ const [password, setPassword] = useState('');
         }
         
         
-    }
+    } 
   return (
     <>
     <div className="min-h-screen bg-gray-100 text-gray-800 antialiased px-4 py-6 flex flex-col justify-center sm:py-12">
   <div className="relative py-3 sm:max-w-xl mx-auto text-center">
     <span className="text-2xl font-light">Login to your account</span>
     <div className="relative mt-4 bg-white shadow-md sm:rounded-lg text-left">
-      <div className="h-2 bg-indigo-400 rounded-t-md"></div>
+      <div className="h-2 bg-indigo-400 rounded-t-md">
+        
+      </div>
       <form onSubmit={submitHandlerStudent} className="py-6 px-8">
         <div className='flex gap-2'>
             <span><label className="block font-semibold">First Name</label>
