@@ -61,7 +61,7 @@ const [password, setPassword] = useState('');
         <input onChange={(e)=>setPassword(e.target.value)} value={password} autoComplete='' type="password" placeholder="Password" className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"/>
         <div className="flex justify-between items-baseline">
           <button className="mt-4 bg-indigo-500 text-white py-2 px-6 rounded-lg hover:bg-indigo-600">Login</button>
-          <a href="#" className="text-sm hover:underline">Forgot password?</a>
+          
         </div>
       </form>
     </>
