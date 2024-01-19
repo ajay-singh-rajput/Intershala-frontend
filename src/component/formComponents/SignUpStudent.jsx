@@ -52,9 +52,12 @@ const [password, setPassword] = useState('');
         <input onChange={(e)=>setCity(e.target.value)} value={city} type="text" placeholder="City" className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"/>
         <div className='flex gap-1 flex-col justify-center'>
         <label className="block mt-3 font-semibold">Gender</label>
+        <span className='flex items-center gap-3'>
         <span className='flex items-center gap-1'><input onChange={(e)=>setGender('Male')} checked={gender === 'Male'? true:false} type="Radio" className=" border  h-5  mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"/>Male
         </span>
         <span className='flex items-center gap-1'><input onChange={(e)=>setGender('Female')} checked={gender === 'Female'? true:false} type="Radio"  className=" border h-5  hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"/>Female
+        </span>
+        
         </span>
         </div>
         <label className="block mt-3 font-semibold">Password</label>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Nav = () => {
   return (
     <>
-    <nav className="flex items-center justify-between flex-wrap bg-indigo-400 p-6">
+    <nav className="flex items-center justify-between flex-wrap bg-indigo-400 py-3 fixed top-0 left-0 w-screen px-6 z-50">
   <div className="flex items-center flex-shrink-0 text-white mr-6">
     <svg className="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
     <span className="font-semibold text-xl tracking-tight">Internshala</span>
@@ -42,7 +42,7 @@ const Nav = () => {
         <span className="align-middle">r</span>
       </Link>
       <Link
-        to="/Login" 
+        to="/login" 
         className={`button ${navCss.buttonNina} px-5 py-0 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white relative block focus:outline-none border-2 border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest overflow-hidden`} 
         data-text="Log-In"
       >

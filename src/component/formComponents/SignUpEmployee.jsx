@@ -16,7 +16,7 @@ const [password, setPassword] = useState('');
         try {
           const respo = await axios({
             method:'post',
-            url:"http://localhost:8080/student/signup",
+            url:"http://localhost:8080/employee/signup",
             headers: { 'content-type': 'application/x-www-form-urlencoded' },
             data:{
               firstName:firstName,
