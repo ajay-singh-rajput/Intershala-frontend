@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 const SignUpEmployee = () => {
 
@@ -30,7 +32,12 @@ const [password, setPassword] = useState('');
           })
           console.log(respo)
         } catch (error) {
-         console.log(error)
+          console.log(error)
+          if(error.request.status > 0){
+            toast.error(error.response.data.message)
+          } else{
+            toast.error(error.message)
+          }
         }
         
         

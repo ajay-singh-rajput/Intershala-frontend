@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 const SignUpForm = () => {
 
@@ -12,7 +14,6 @@ const [gender, setGender] = useState('Male');
 const [password, setPassword] = useState('');
     const submitHandlerStudent = async (e)=>{
         e.preventDefault();
-        
         try {
           const respo = await axios({
             method:'post',
@@ -30,7 +31,12 @@ const [password, setPassword] = useState('');
           })
           console.log(respo)
         } catch (error) {
-         console.log(error)
+          console.log(error)
+          if(error.request.status > 0){
+            toast.error(error.response.data.message)
+          } else{
+            toast.error(error.message)
+          }
         }
         
         
@@ -63,7 +69,7 @@ const [password, setPassword] = useState('');
         <label className="block mt-3 font-semibold">Password</label>
         <input onChange={(e)=>setPassword(e.target.value)} value={password} autoComplete='' type="password" placeholder="Password" className=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"/>
         <div className="flex justify-between items-baseline">
-          <button className="mt-4 bg-indigo-500 text-white py-2 px-6 rounded-lg hover:bg-indigo-600">Login</button>
+          <button className="mt-4 bg-indigo-500 text-white py-2 px-6 rounded-lg hover:bg-indigo-600">Register</button>
           
         </div>
       </form>

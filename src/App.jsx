@@ -9,15 +9,6 @@ import SignIn from './component/SignIn'
 const App = () => {
 
   
-  const connectServer = async ()=>{
-    try {
-      const {data} = await axios.get("http://localhost:8080/")
-    console.log(data)
-    } catch (error) {
-      console.log(error)
-    }
-    
-  }
   return (
     <>
     <div>

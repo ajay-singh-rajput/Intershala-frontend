@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 const SignInEmployee = () => {
 
@@ -10,6 +11,7 @@ const [password, setPassword] = useState('');
         
         try {
           const respo = await axios({
+
             method:'post',
             url:"http://localhost:8080/employee/signIn",
             headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -21,6 +23,11 @@ const [password, setPassword] = useState('');
           console.log(respo)
         } catch (error) {
          console.log(error)
+          if(error.request.status > 0){
+            toast.error(error.response.data.message)
+          } else{
+            toast.error(error.message)
+          }
         }
         
         
