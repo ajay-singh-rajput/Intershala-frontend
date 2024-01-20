@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import navCss from '../App.module.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Nav = () => {
+
+  const [isLogin, setIsLogin] = useState(Object)
+
+  const checkLogin = async ()=>{
+    try {
+      const {data} = await axios.get("http://localhost:8080");
+      return data;
+    } catch (error) {
+      return error
+    }
+  }
+
+  useEffect(() => {
+  
+    setIsLogin(checkLogin())
+    console.log(isLogin);
+  
+    return () => {
+      
+    }
+  }, [])
+  
   return (
     <>
     <nav className="flex items-center justify-between flex-wrap bg-indigo-400 py-3 fixed top-0 left-0 w-screen px-6 z-50">
