@@ -4,16 +4,22 @@ import { toast } from 'react-toastify'
 
 
 const defaultUrl = 'http://localhost:8080'
+const errorHandler = (error)=>{
+  console.log()
+  if(error.response.status){
+    return {success:false, msg:'network issue'}
+  }
+}
 const Api= {
   get:async(path)=>{
     try {
-      const response = await axios({
+      const {data} = await axios({
         method:'get',
         url:`${defaultUrl}${path}`
       })
-      return response
+      return {success:true, data:data}
     } catch (error) {
-      return returnData.response.status ? error : false
+      errorHandler(error)
     }
   },
   post: async(path, data)=>{
@@ -24,9 +30,9 @@ const Api= {
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data:data
       })
-      return response
+      return {success:true, data:data}
     } catch (error) {
-      return returnData.response.status ? error : false
+      errorHandler(error)
     }
   }
 }

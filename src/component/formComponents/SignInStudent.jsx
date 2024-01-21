@@ -20,11 +20,12 @@ const [password, setPassword] = useState('');
             sessionStorage.setItem('userType',returnData.data.userType);
             sessionStorage.setItem('id',returnData.data.id);
             console.log(sessionStorage.getItem('id'));
+            
           }
         } else{
           if(returnData.response.status > 299){
             // console.log(returnData)
-          }
+          } 
         } } else {toast.warn('Unable to connect with server')  };
 
         
