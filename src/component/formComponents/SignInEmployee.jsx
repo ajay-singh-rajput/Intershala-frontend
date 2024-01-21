@@ -26,7 +26,6 @@ const [password, setPassword] = useState('');
             sessionStorage.setItem('Token',`${respo.data.token}`);
             sessionStorage.setItem('userType',respo.data.userType);
             sessionStorage.setItem('id',respo.data.id);
-            
           }
         } catch (error) {
          console.log(error)

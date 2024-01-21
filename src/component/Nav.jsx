@@ -19,7 +19,7 @@ const Nav = () => {
   useEffect(() => {
   
     setIsLogin(checkLogin())
-    console.log(isLogin);
+    console.log(sessionStorage.getItem('token'));
   
     return () => {
       
