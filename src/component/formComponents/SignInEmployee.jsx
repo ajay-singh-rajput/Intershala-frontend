@@ -21,6 +21,13 @@ const [password, setPassword] = useState('');
             }
           })
           console.log(respo)
+
+          if(respo.data.id && respo.data.success){
+            sessionStorage.setItem('Token',`${respo.data.token}`);
+            sessionStorage.setItem('userType',respo.data.userType);
+            sessionStorage.setItem('id',respo.data.id);
+            
+          }
         } catch (error) {
          console.log(error)
           if(error.request.status > 0){
