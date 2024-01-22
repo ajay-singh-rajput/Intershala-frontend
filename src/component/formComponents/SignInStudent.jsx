@@ -9,27 +9,31 @@ const SignInFormStudent = () => {
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
     const submitHandlerStudent = async (e)=>{
+
         e.preventDefault();
 
-        const returnData = await Api.post('/student/signIn',{email:email,password:password})
-        console.log(returnData)
-        if(returnData) {
-         if(returnData.status < 299){
-          if(returnData.data.id && returnData.data.success){
-            sessionStorage.setItem('Token',`${returnData.data.token}`);
-            sessionStorage.setItem('userType',returnData.data.userType);
-            sessionStorage.setItem('id',returnData.data.id);
-            console.log(sessionStorage.getItem('id'));
-            
-          }
-        } else{
-          if(returnData.response.status > 299){
-            // console.log(returnData)
-          } 
-        } } else {toast.warn('Unable to connect with server')  };
-
+        if (false) {
+          const returnData = await Api.post('/student/signIn',{email:email,password:password})
+          console.log(returnData)
+          if(returnData) {
+           if(returnData.status < 299){
+            if(returnData.data.id && returnData.data.success){
+              sessionStorage.setItem('Token',`${returnData.data.token}`);
+              sessionStorage.setItem('userType',returnData.data.userType);
+              sessionStorage.setItem('id',returnData.data.id);
+              console.log(sessionStorage.getItem('id'));
+              
+            }
+          } else{
+            if(returnData.response.status > 299){
+              // console.log(returnData)
+            } 
+          } } else {toast.warn('Unable to connect with server')  };
+  
+        }
+       
         
-        if(1 === 2){
+        if(1 === 1){
           try {
             const respo = await axios({
               method:'post',
@@ -42,10 +46,8 @@ const [password, setPassword] = useState('');
             })
             console.log(respo)
             if(respo.data.id && respo.data.success){
-              sessionStorage.setItem('Token',`${respo.data.token}`);
-              sessionStorage.setItem('userType',respo.data.userType);
-              sessionStorage.setItem('id',respo.data.id);
-              console.log(sessionStorage.getItem('id'));
+              sessionStorage.setItem('isLogin',[respo.data.id,respo.data.token,respo.data.userType])
+              console.log(sessionStorage.getItem('isLogin'));
             }
           } catch (error) {
             console.log(error)
