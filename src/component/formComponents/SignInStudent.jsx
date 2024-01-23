@@ -2,8 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import Api from '../API/Api';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../store/loginSlice/LoginSlice';
 
 const SignInFormStudent = () => {
+
+  const dispatch = useDispatch();
 
     
 const [email, setEmail] = useState('');
@@ -46,8 +50,7 @@ const [password, setPassword] = useState('');
             })
             console.log(respo)
             if(respo.data.id && respo.data.success){
-              sessionStorage.setItem('isLogin',[respo.data.id,respo.data.token,respo.data.userType])
-              console.log(sessionStorage.getItem('isLogin'));
+              dispatch(registerUser({id:respo.data.id,token:respo.data.token,userType:respo.data.userType}));
             }
           } catch (error) {
             console.log(error)
@@ -62,7 +65,7 @@ const [password, setPassword] = useState('');
   
 
     useEffect(() => {
-      console.log(sessionStorage.getItem('id'))
+      
     
       return () => {
         

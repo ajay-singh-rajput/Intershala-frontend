@@ -2,29 +2,30 @@ import React, { useEffect, useState } from 'react'
 import navCss from '../App.module.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { logOutUser } from './store/loginSlice/LoginSlice'
 
 const Nav = () => {
 
-  const [isLogin, setIsLogin] = useState(Object)
-
-  const checkLogin = async ()=>{
+  const isLogin = useSelector((state) => state.LoginSlice.isLogin);
+  const [changeNav, setChangeNav] = useState(false)
+  const dispatch = useDispatch();
+  const getUserInfo = async ()=>{
     try {
-      const {data} = await axios.get("http://localhost:8080");
+      const {data} = await axios.post("http://localhost:8080");
       return data;
     } catch (error) {
       return error
     }
   }
-
+  
   useEffect(() => {
-  
-    setIsLogin(checkLogin())
-    console.log(sessionStorage.getItem('token'));
-  
+    console.log('change hua');
+      isLogin.id? setChangeNav(true):setChangeNav(false)
     return () => {
       
     }
-  }, [])
+  }, [isLogin])
   
   return (
     <>
@@ -49,7 +50,10 @@ const Nav = () => {
         Blog
       </span>
     </div>
+    {!changeNav ?
     <div className="flex gap-2">
+      
+      
       <Link
         to="/register" 
         className={`button ${navCss.buttonNina} px-5 py-0 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white relative block focus:outline-none border-2 border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest overflow-hidden`} 
@@ -77,6 +81,20 @@ const Nav = () => {
         <span className="align-middle">n</span>
       </Link>
     </div>
+    
+    : <button
+    onClick={()=>dispatch(logOutUser())}
+    className={`button ${navCss.buttonNina} px-5 py-0 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white relative block focus:outline-none border-2 border-solid rounded-lg text-sm text-center font-semibold uppercase tracking-widest overflow-hidden`} 
+    data-text="Log-Out"
+  >
+    <span className="align-middle">L</span>
+    <span className="align-middle">o</span>
+    <span className="align-middle">g</span>
+    <span className="align-middle">-</span>
+    <span className="align-middle">O</span>
+    <span className="align-middle">u</span>
+    <span className="align-middle">t</span>
+  </button>}
   </div>
 </nav>
 
